@@ -1,4 +1,4 @@
-# Laravel API-First + Thin-Client Shared TOTP Handshake  
+# API-First + Thin-Client Shared TOTP Handshake  
 *for Docker / Podman ecosystems*
 
 ---
@@ -127,6 +127,7 @@ Ideal for systems where both API and client containers run on the same host, sha
 
 ## 📄 License
 MIT License — see [LICENSE](LICENSE)
+
 
 
 
