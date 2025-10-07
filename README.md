@@ -64,9 +64,6 @@ php artisan otp:rotate
 ```
 
 ---
-
-## 🔑 Login Combined with OTP Handshake Example
-
 ## 🔑 Backend-to-Backend Login Flow with OTP Refresh
 This sequence illustrates how the thin client re-validates using a new shared key when an OTP check fails.
 
@@ -130,6 +127,7 @@ Ideal for systems where both API and client containers run on the same host, sha
 
 ## 📄 License
 MIT License — see [LICENSE](LICENSE)
+
 
 
 
