@@ -13,14 +13,14 @@ It is framework-agnostic — while the example uses Laravel, the same logic work
 
 ```mermaid
 sequenceDiagram
-    participant FE as Thin Client (Laravel / Node / Python)
+    participant FE as Thin Client Backend (Laravel / Node / Python)
     participant Shared as Shared Volume (/opt/shared/otp.key)
-    participant API as API Service (Laravel)
+    participant API as API First Service Backend (Laravel)
     API->>Shared: Generate & write TOTP secret (runtime)
     FE->>Shared: Read TOTP secret (read-only)
     FE->>API: Send request with X-OTP header
     API->>Shared: Verify code against secret
-    API-->>FE: Success / 401 Invalid OTP
+    API-->>FE: Success / 401 Invalid OTP (or Invalid credentials)
 ```
 
 ---
@@ -103,3 +103,4 @@ Ideal for systems where both API and client containers run on the same host, sha
 
 ## 📄 License
 MIT License — see [LICENSE](LICENSE)
+
