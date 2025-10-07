@@ -65,6 +65,27 @@ php artisan otp:rotate
 
 ---
 
+## 🧱 A login with OTP Handshake Example
+
+flowchart TD
+    A([User: credentials + OTP]) --> B([User validation (password/token)])
+    B -->|success| C([OTP verification - current key])
+    B -->|failed| Z([Return: Invalid credentials])
+    C -->|success| X([Login success])
+    C -->|failed| D{Was key refreshed?}
+    D -->|yes| Z
+    D -->|no| E([FE: /api/keyrefresh request])
+    E --> F([API: returns new key])
+    F --> G([FE: retry OTP verification with new key])
+    G -->|success| X
+    G -->|failed| H([Log: OTP fail after refresh]) --> Z
+
+    X:::success
+    Z:::fail
+
+    classDef success fill:#a2f4a2,stroke:#333,stroke-width:1px;
+    classDef fail fill:#f9a2a2,stroke:#333,stroke-width:1px;
+
 ## 💡 Benefits
 
 - **Stateless trust:** no Redis, database, or .env variables needed.  
@@ -103,4 +124,5 @@ Ideal for systems where both API and client containers run on the same host, sha
 
 ## 📄 License
 MIT License — see [LICENSE](LICENSE)
+
 
