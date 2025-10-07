@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  api:
+    image: laravel-api:latest
+    container_name: api
+    volumes:
+      - shared_otp:/opt/shared:rw
+    networks:
+      - handshake_net
+
+  fe:
+    image: thin-client:latest
+    container_name: fe
+    volumes:
+      - shared_otp:/opt/shared:ro
+    networks:
+      - handshake_net
+
+volumes:
+  shared_otp:
+
+networks:
+  handshake_net:

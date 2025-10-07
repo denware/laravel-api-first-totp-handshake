@@ -1,0 +1,23 @@
+{
+  "name": "yourname/laravel-api-first-totp-handshake",
+  "description": "A stateless, runtime-generated, shared-secret TOTP handshake pattern for API-first and thin-client systems running in Docker or Podman ecosystems.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Your Name",
+      "email": "you@example.com"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "spomky-labs/otphp": "^11.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "YourName\\TOTPHandshake\\": "src/"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
